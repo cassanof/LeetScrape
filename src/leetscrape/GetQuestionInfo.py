@@ -130,10 +130,10 @@ class GetQuestionInfo:
         Returns:
             list[int]: The list of QIDs of the questions similar to the given question.
         """
-        similar_questions = []
-        for qs in json.loads(self.req["data"]["question"]["similarQuestions"]):
-            similar_questions.append(self.questions_info.loc[qs["titleSlug"]].QID)
-        return similar_questions
+        #  similar_questions = []
+        #  for qs in json.loads(self.req["data"]["question"]["similarQuestions"]):
+            #  similar_questions.append(self.questions_info.loc[qs["titleSlug"]].QID)
+        return []
 
     # Code Snippet
     def get_code_snippet(self) -> str:  # type: ignore
@@ -149,7 +149,7 @@ class GetQuestionInfo:
             python_code_snippet = [
                 code_snippet
                 for code_snippet in self.req["data"]["question"]["codeSnippets"]
-                if code_snippet["langSlug"] == "python3"
+                if code_snippet["langSlug"] == "javascript"
             ]
             if len(python_code_snippet) > 0:
                 return python_code_snippet[0]["code"]
